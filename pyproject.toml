@@ -1,6 +1,6 @@
 [project]
 name = "py-aiovk"
-version = "0.0.2"
+version = "0.0.2a"
 authors = [
   { name="ScuroNeko" },
 ]
