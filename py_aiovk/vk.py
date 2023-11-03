@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 
 from pydantic import BaseModel
 
-from src.messages import Messages
+from messages import Messages
 
 
 class VKError(BaseModel):
