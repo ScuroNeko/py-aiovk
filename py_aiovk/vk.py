@@ -4,9 +4,8 @@ from urllib.parse import urlencode
 from aiohttp import ClientSession
 
 from py_aiovk.callback import Callback
-from py_aiovk.groups import Groups
+from py_aiovk.methods import Groups, Messages
 from py_aiovk.longpoll import Longpoll
-from py_aiovk.messages import Messages
 
 
 class VKException(Exception):
@@ -51,6 +50,7 @@ class VKClient:
     def group(self):
         return Groups(self)
 
+    # Service
     def callback(self, code, secret=''):
         return Callback(self, code, secret)
 

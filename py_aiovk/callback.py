@@ -1,4 +1,3 @@
-import nest_asyncio
 from aiohttp.web_app import Application
 from aiohttp.web import run_app, Request, Response, json_response
 from aiohttp.web_routedef import post
@@ -70,5 +69,4 @@ class Callback:
         return Response(text='ok')
 
     def run(self):
-        nest_asyncio.apply(self.vk.loop)
         run_app(self.server, loop=self.vk.loop)
