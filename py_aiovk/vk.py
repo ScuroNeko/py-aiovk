@@ -3,8 +3,11 @@ from urllib.parse import urlencode
 
 from aiohttp import ClientSession
 
+from py_aiovk.methods import Account, Apps, AppWidgets, Audio, Auth, Board, \
+    Database, Docs, Donut, Fave, Friends, Groups, Likes, Market, Messages, \
+    Newsfeed, Notes, Photos, Podcasts, Polls, Search, Status, Storage, Store, \
+    Stories, Users, Utils, Video, Wall
 from py_aiovk.callback import Callback
-from py_aiovk.methods import Groups, Messages
 from py_aiovk.longpoll import Longpoll
 
 
@@ -16,7 +19,7 @@ class VKException(Exception):
 
 
 class VKClient:
-    def __init__(self, token):
+    def __init__(self, token, version='5.199'):
         try:
             self.loop = get_running_loop()
         except RuntimeError:
@@ -25,7 +28,7 @@ class VKClient:
         set_event_loop(self.loop)
         self.client = ClientSession(loop=self.loop)
         self.base_url = 'https://api.vk.com'
-        self.version = '5.199'
+        self.version = version
         self.token = token
 
     async def close(self):
@@ -44,11 +47,92 @@ class VKClient:
                 raise VKException(response['error'])
         return response['response']
 
+    def account(self):
+        return Account(self)
+
+    def apps(self):
+        return Apps(self)
+
+    def app_widget(self):
+        return AppWidgets(self)
+
+    def audio(self):
+        return Audio(self)
+
+    def auth(self):
+        return Auth(self)
+
+    def board(self):
+        return Board(self)
+
+    def database(self):
+        return Database(self)
+
+    def docs(self):
+        return Docs(self)
+
+    def donut(self):
+        return Donut(self)
+
+    def fave(self):
+        return Fave(self)
+
+    def friends(self):
+        return Friends(self)
+
+    def groups(self):
+        return Groups(self)
+
+    def likes(self):
+        return Likes(self)
+
+    def market(self):
+        return Market(self)
+
     def messages(self):
         return Messages(self)
 
-    def group(self):
-        return Groups(self)
+    def newsfeed(self):
+        return Newsfeed(self)
+
+    def notes(self):
+        return Notes(self)
+
+    def photos(self):
+        return Photos(self)
+
+    def podcasts(self):
+        return Podcasts(self)
+
+    def polls(self):
+        return Polls(self)
+
+    def search(self):
+        return Search(self)
+
+    def status(self):
+        return Status(self)
+
+    def storage(self):
+        return Storage(self)
+
+    def store(self):
+        return Store(self)
+
+    def stories(self):
+        return Stories(self)
+
+    def users(self):
+        return Users(self)
+
+    def utils(self):
+        return Utils(self)
+
+    def video(self):
+        return Video(self)
+
+    def wall(self):
+        return Wall(self)
 
     # Service
     def callback(self, code, secret=''):

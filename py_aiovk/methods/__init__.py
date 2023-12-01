@@ -1,6 +1,6 @@
 from .account import Account
 from .apps import Apps
-from .appWidgets import Appwidgets
+from .appWidgets import AppWidgets
 from .audio import Audio
 from .auth import Auth
 from .board import Board
