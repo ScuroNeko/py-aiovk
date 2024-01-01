@@ -29,6 +29,13 @@ class MessagesSendParams(BaseModel):
     subscribe_id: int = None
 
 
+class MessagesSendMessageEventAnswerParams(BaseModel):
+    event_id: str
+    user_id: int
+    peer_id: int
+    event_data: str = None
+
+
 class MessagesJoinChatByInviteLinkParams(BaseModel):
     link: str = None
 

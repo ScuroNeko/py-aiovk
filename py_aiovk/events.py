@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Events:
+class VKBotEvents:
     MESSAGE_NEW = 'message_new'
     MESSAGE_TYPING_STATE = 'message_typing_state'
 
