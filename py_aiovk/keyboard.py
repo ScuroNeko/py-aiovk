@@ -8,14 +8,14 @@ class EnumEncoder(JSONEncoder):
         return obj.value
 
 
-class VkKeyboardColor(Enum):
+class VKKeyboardColor(Enum):
     PRIMARY = 'primary'
     SECONDARY = 'secondary'
     NEGATIVE = 'negative'
     POSITIVE = 'positive'
 
 
-class VkKeyboard:
+class VKKeyboard:
     def __init__(self, one_time=False, inline=False):
         self.inline = inline
         self.lines = [[]]
@@ -35,7 +35,7 @@ class VkKeyboard:
         elif isinstance(payload, Payload):
             return json.dumps(payload.get())
 
-    def add_text_button(self, text, payload=None, color=VkKeyboardColor.PRIMARY):
+    def add_text_button(self, text, payload=None, color=VKKeyboardColor.PRIMARY):
         current_line = self.lines[-1]
         if len(current_line) == 5:
             raise TypeError('max elements in line: 5')
@@ -122,7 +122,7 @@ class VkKeyboard:
         }
         current_line.append(button)
 
-    def add_callback_button(self, label, payload=None, color=VkKeyboardColor.PRIMARY):
+    def add_callback_button(self, label, payload=None, color=VKKeyboardColor.PRIMARY):
         current_line = self.lines[-1]
         if len(current_line) == 5:
             raise TypeError('max elements in line: 5')

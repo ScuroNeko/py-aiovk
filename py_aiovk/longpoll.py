@@ -1,9 +1,9 @@
-from typing import Generator, AsyncIterable
+from typing import AsyncIterable
 
 from pydantic import BaseModel
 
 
-class LongpollUpdate(BaseModel):
+class VKLongpollUpdate(BaseModel):
     group_id: int
     type: str
     event_id: str
@@ -11,7 +11,7 @@ class LongpollUpdate(BaseModel):
     object: dict
 
 
-class Longpoll:
+class VKLongpoll:
     __slots__ = ('vk', 'ts', 'key', 'server')
 
     def __init__(self, vk):
