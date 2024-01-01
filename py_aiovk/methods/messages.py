@@ -8,6 +8,9 @@ class Messages:
     async def send(self, params: MessagesSendParams):
         return await self.vk.execute('messages', 'send', **params.model_dump(exclude_none=True))
 
+    async def send_message_event_answer(self, params: MessagesSendMessageEventAnswerParams):
+        return await self.vk.execute('messages', 'sendMessageEventAnswer', **params.model_dump(exclude_none=True))
+
     async def join_chat_by_invite_link(self, params: MessagesJoinChatByInviteLinkParams):
         return await self.vk.execute('messages', 'joinChatByInviteLink', **params.model_dump(exclude_none=True))
 
