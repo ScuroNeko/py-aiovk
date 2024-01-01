@@ -5,6 +5,9 @@ class Docs:
     def __init__(self, vk):
         self.vk = vk
 
+    async def get_messages_upload_server(self, params: DocsGetMessagesUploadServerParams):
+        return await self.vk.execute('docs', 'getMessagesUploadServer', **params.model_dump(exclude_none=True))
+
     async def get_upload_server(self, params: DocsGetUploadServerParams):
         return await self.vk.execute('docs', 'getUploadServer', **params.model_dump(exclude_none=True))
 

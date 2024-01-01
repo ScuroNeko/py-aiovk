@@ -1,6 +1,11 @@
 from pydantic import BaseModel
 
 
+class DocsGetMessagesUploadServerParams(BaseModel):
+    type: str = None
+    peer_id: int = None
+
+
 class DocsGetUploadServerParams(BaseModel):
     group_id: int = None
 
@@ -42,5 +47,3 @@ class DocsSearchParams(BaseModel):
     count: int = None
     offset: int = None
     return_tags: bool = None
-
-
