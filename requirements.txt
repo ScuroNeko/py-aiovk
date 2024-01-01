@@ -1,3 +1,2 @@
 pydantic
 aiohttp
-nest-asyncio
