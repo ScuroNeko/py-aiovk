@@ -17,12 +17,12 @@ class JsonParser:
         return json.loads(string)
 
 
-class VkUpload(object):
+class VKUpload(object):
     __slots__ = ('vk',)
 
     def __init__(self, vk):
         if not isinstance(vk, VKClient):
-            raise TypeError('The arg should be VK or VkApiMethod instance')
+            raise TypeError('The arg should be VKClient instance')
 
         self.vk = vk
 
